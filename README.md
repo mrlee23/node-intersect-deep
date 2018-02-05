@@ -33,51 +33,76 @@ intersectDeep({a: 1, b: 1},
 
 #### Complex objects (level more than 1)
 ```javascript
-intersectDeep({a: 1,
-               b: 1
-               {aa: 1,
-                bb: 1}},
-              {a: 2,
-               b: 2
-               {aa: 2,
-                bb: 2,
-                cc: 2}},
-              {a: 3,
-               b: 3
-               {aa: 3}});
-/*
- * {
- *    a: 3,
- *    b: 3,
- *    {
- *        aa: 3
- *    }
- * }
- */
+intersectDeep(
+    {
+        a: 1,
+        b: 1,
+        c: {
+            aa: 1,
+            bb: 1
+        }
+    },
+    {
+        a: 2,
+        b: 2,
+        c: {
+            aa: 2
+        }
+    },
+    {
+        a: 3,
+        b: 3,
+        c: {
+            aa: 3,
+            bb: 3,
+            cc: 3
+        }
+    }
+);
+
+// {
+//      a: 3,
+//      b: 3,
+//      c: {
+//          aa: 3
+//      }
+// }
+
  ```
 
 #### If not equal types? Ignore it! (focus on value of `a`)
 ```javascript
-intersectDeep({a: 1,
-			   b: 1},
-			  {a: {
-				  aa: 2,
-				  bb: 2},
-			   b: 2})
+intersectDeep(
+    {
+        a: 1,
+        b: 1
+    },
+    {
+        a: {
+            aa: 2,
+            bb: 2
+        },
+        b: 2
+    }
+);
 
-/*
- * {
- *    b: 2,
- * }
- */
 
-intersectDeep({a: 1,
-			   b: 1},
-			  {a: ['a', 'b'],
-			   b: 2})
+// {
+//    b: 2,
+// }
 
-/*
- * {
- *    b: 2,
- * }
+intersectDeep(
+	{
+		a: 1,
+		b: 1
+	},
+	{
+		a: ['a', 'b'],
+		b: 2
+	}
+);
+
+// {
+//    b: 2,
+// }
 ```
