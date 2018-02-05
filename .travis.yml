@@ -10,3 +10,17 @@ node_js:
 before_script:
   - git config --global user.email "dongsoolee8@gmail.com"
   - git config --global user.name "mrlee23"
+  - curl -o build.sh https://raw.githubusercontent.com/mrlee23/Build.sh/master/build.sh
+
+after_success:
+  script:
+    - bash build.sh release
+  on:
+    branch: master
+
+deploy:
+  provider: npm
+  email: "mrlee_23@naver.com"
+  api_key: $NPM_TOKEN
+  on:
+    branch: release
