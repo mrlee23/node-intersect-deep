@@ -1,0 +1,23 @@
+{
+  "name": "intersect-deep",
+  "version": "0.1.0",
+  "description": "Deep intersect via the keys of objects.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test.js"
+  },
+  "keywords": [
+    "intersect",
+    "object",
+    "deep",
+    "key"
+  ],
+  "author": "Dongsoo Lee",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.5",
+    "mocha": "^5.0.0",
+    "object-deep": "^0.2.1",
+    "one-mocha": "^0.1.0"
+  }
+}
