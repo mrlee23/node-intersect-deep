@@ -1,0 +1,12 @@
+notifications:
+  email:
+      - mrlee_23@naver.com
+env:
+  global:
+      - GH_TOKEN=$GITHUB_TOKEN
+language: node_js
+node_js:
+  - "8"
+before_script:
+  - git config --global user.email "dongsoolee8@gmail.com"
+  - git config --global user.name "mrlee23"
