@@ -12,12 +12,7 @@ before_script:
   - git config --global user.name "mrlee23"
   - curl -o build.sh https://raw.githubusercontent.com/mrlee23/Build.sh/master/build.sh
 
-after_success:
-  script:
-    - bash build.sh release
-  on:
-    branch: master
-
+after_success: if [ "$TRAVIS_BRANCH" == "master" ]; then bash build.sh release; fi
 deploy:
   provider: npm
   email: "mrlee_23@naver.com"
